@@ -42,6 +42,6 @@ def time_between_shutdowns(loglines):
        Return this datetime.timedelta object.'''
     pass
 
-
-tbs = time_between_shutdowns(loglines)
-print('Time between shutdowns = ' + str(tbs))
+if __name__ == '__main__':
+    tbs = time_between_shutdowns(loglines)
+    print('Time between shutdowns = ' + str(tbs))
