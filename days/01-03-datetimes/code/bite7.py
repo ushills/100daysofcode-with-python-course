@@ -30,14 +30,11 @@ def convert_to_datetime(line):
 def time_between_shutdowns(loglines):
     shutdowntimes = []
     for line in loglines:
-        # line = (line.strip('. \n'))
-        # words = line.split(" ")
-        # event = ' '.join(words[3:5])
         if SHUTDOWN_EVENT in line:
             dt = convert_to_datetime(line)
             shutdowntimes.append(dt)
     if len(shutdowntimes) > 0:
-        shutdown_delta = (shutdowntimes[-1] - shutdowntimes[0])
+        shutdown_delta = max(shutdowntimes) - min(shutdowntimes)
         return(shutdown_delta)
     '''TODO 2:
        Extract shutdown events ("Shutdown initiated") from loglines and calculate the
@@ -47,4 +44,4 @@ def time_between_shutdowns(loglines):
 
 
 tbs = time_between_shutdowns(loglines)
-print(tbs)
+print('Time between shutdowns = ' + str(tbs))
