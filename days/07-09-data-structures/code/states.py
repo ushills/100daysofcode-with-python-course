@@ -44,12 +44,12 @@ def get_every_nth_state(n=10):
     return(listofnthstates)
 
 
-
 def get_state_abbrev(abbrev):
-    """Look up a state abbreviation by full name in
-       us_state_abbrev, if not found return the string stored in the
-       NOT_FOUND constant (takeaway: dicts are great for lookups)"""
-    pass
+    try:
+        state_abbrev = us_state_abbrev[abbrev]
+        return state_abbrev
+    except KeyError:
+        return NOT_FOUND
 
 
 def get_longest_state(data):
@@ -64,6 +64,7 @@ def combine_state_names_and_abbreviations():
        the states list (takeaways: use another dict method to get all
        values and use sorted, list slicing and list concatenation)"""
     pass
+
 
 if __name__ == '__main__':
     print(get_every_nth_state(10))
