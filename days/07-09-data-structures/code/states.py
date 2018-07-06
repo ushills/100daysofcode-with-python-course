@@ -53,9 +53,7 @@ def get_state_abbrev(abbrev):
 
 
 def get_longest_state(data):
-    """Takes dict or list and determines the longest state name
-       (takeaways: use a dict method to get all keys, use sorted)"""
-    pass
+    return max(data, key=len)
 
 
 def combine_state_names_and_abbreviations():
@@ -63,7 +61,7 @@ def combine_state_names_and_abbreviations():
        us_state_abbrev dict ordered values and the last 10 states from
        the states list (takeaways: use another dict method to get all
        values and use sorted, list slicing and list concatenation)"""
-    pass
+    return sorted(us_state_abbrev.values())[:10] + sorted(states)[-10:]
 
 
 if __name__ == '__main__':
